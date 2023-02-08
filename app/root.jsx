@@ -11,7 +11,7 @@
  * @date Wednesday, 8th February 2023
  */
 
-import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
+import { Link, Links, LiveReload, Meta, Outlet, Scripts, useCatch } from '@remix-run/react'
 import Footer from "~/components/footer"
 import Header from "~/components/header"
 import styles from '~/styles/index.css'
@@ -87,4 +87,27 @@ function Document({ children })
                 <LiveReload />
             </body>
         </html>)
+}
+
+/* Error management */
+
+export function CatchBoundary()
+{
+    const error = useCatch()
+    return (
+        <Document>
+            <p className="error">{error.status} {error.statusText}</p>
+            <Link className="link-error" to="/">Maybe you want to go back to the main page</Link>
+        </Document>
+    )
+}
+
+export function ErrorBoundary({ error })
+{
+    return (
+        <Document>
+            <p className="error">{error.status} {error.statusText}</p>
+            <Link className="link-error" to="/">Maybe you want to go back to the main page</Link>
+        </Document>
+    )
 }

@@ -19,7 +19,7 @@ function Instrument({ instrument })
 
     return (
         <div className="instrument">
-            <img src={image.data.attributes.formats.medium.url} alt={`${name} instrument`} draggable="false" />
+            <img src={image.data.attributes.formats.medium.url} alt={`${name} instrument`} draggable="false" className="image" />
             <div className="content">
                 <h3>{name}</h3>
                 <p className="description">{description}</p>

@@ -127,3 +127,20 @@
  .footer .copyright {
   text-align: center;
  }
+
+ /* Error */
+
+ .error,  .link-error {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 5rem;
+  font-weight: 900;
+ }
+
+ .link-error {
+  display: block;
+  color: var(--primary);
+  text-decoration: none;
+  font-size:  2rem;
+  font-weight: 700;
+}

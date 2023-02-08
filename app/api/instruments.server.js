@@ -18,3 +18,11 @@ export async function getInstruments()
 
     return result
 }
+
+export async function getInstrument(url)
+{
+    const response = await fetch(`${process.env.API_URL}/instruments?filters[url]=${url}&populate=image`)
+    const result = await response.json()
+
+    return result
+}

@@ -22,10 +22,11 @@
     gap: 1rem;
     align-items: center;
     justify-items: center;
-
+    max-width: 70rem;
+    margin: 0 auto;
 }
 
-.instrument img {
+.instrument .image {
     padding: 2rem;
     max-height: 20rem;
 }
@@ -35,7 +36,7 @@
 }
 
 .instrument .content h3{
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     color: var(--primary);
 }
@@ -45,12 +46,12 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .instrument .price {
     color: var(--primary);
-    font-size: 2rem;
+    font-size: 4rem;
     margin: 0;
     font-weight: 900;
 }
