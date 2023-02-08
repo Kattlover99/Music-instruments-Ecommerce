@@ -11,8 +11,12 @@
  * @date Wednesday, 8th February 2023
  */
 
-import { Links, Meta } from '@remix-run/react'
-import styles from './styles/index.css'
+import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
+import Footer from "~/components/footer"
+import Header from "~/components/header"
+import styles from '~/styles/index.css'
+
+// Meta and links only works into routes
 
 export function meta()
 {
@@ -56,7 +60,7 @@ export default function App()
 {
     return (
         <Document>
-            <h1>Hello</h1>
+            <Outlet />
         </Document>
     )
 }
@@ -70,7 +74,11 @@ function Document({ children })
                 <Links />
             </head>
             <body>
+                <Header />
                 {children}
+                <Footer />
+                <Scripts />
+                <LiveReload />
             </body>
         </html>)
 }
