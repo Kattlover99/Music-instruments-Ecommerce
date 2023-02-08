@@ -15,6 +15,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
 import Footer from "~/components/footer"
 import Header from "~/components/header"
 import styles from '~/styles/index.css'
+import Favicon from '../public/favicon.ico'
 
 // Meta and links only works into routes
 
@@ -48,6 +49,11 @@ export function links()
         {
             rel: 'stylesheet',
             href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap'
+        },
+        {
+            rel: 'icon',
+            type: 'icon',
+            href: Favicon,
         },
         {
             rel: 'stylesheet',

@@ -11,6 +11,15 @@
  * @date Wednesday, 8th February 2023
  */
 
+export function meta()
+{
+    return (
+        {
+            title: 'Miusiq Remix - Store',
+        }
+    )
+}
+
 function Store()
 {
     return (
