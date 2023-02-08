@@ -14,21 +14,36 @@
 import { useLoaderData } from "@remix-run/react"
 import { getInstruments } from "~/api/instruments.server"
 import Instrument from "~/components/instrument"
-
-export async function loader()
-{
-    const instruments = await getInstruments()
-
-    return instruments.data
-}
+import styles from "~/styles/instruments.css"
 
 export function meta()
 {
     return (
         {
             title: 'Miusiq Remix - Store',
+            description: 'Our Miusiq Store',
+
         }
     )
+}
+
+export function links()
+{
+    return (
+        [
+            {
+                rel: 'stylesheet',
+                href: styles
+            }
+        ]
+    )
+}
+
+export async function loader()
+{
+    const instruments = await getInstruments()
+
+    return instruments.data
 }
 
 function Store()
