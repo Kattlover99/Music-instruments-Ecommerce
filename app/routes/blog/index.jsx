@@ -6,14 +6,14 @@
  * This file, project or its parts can not be copied and/or distributed without
  * the express permission of Juan Felipe Rada.
  *
- * @file blog.jsx
+ * @file index.jsx
  * @author Juan Felipe Rada <radapls8@gmail.com>
  * @date Wednesday, 8th February 2023
  */
 
-import { Outlet, useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "@remix-run/react"
 import { getBlogs } from "~/api/blog.server"
-import styles from "../styles/blog.css"
+import PostsList from "~/components/posts-list"
 
 export async function loader()
 {
@@ -31,26 +31,13 @@ export function meta()
     )
 }
 
-export function links()
-{
-    return (
-        [
-            {
-                rel: 'stylesheet',
-                href: styles
-            }
-        ]
-    )
-}
-
 function Blog()
 {
     const blog = useLoaderData()
 
     return (
-        <main className="container">
-            <Outlet />
-        </main>
+        <PostsList
+            blog={blog} />
     )
 }
 
