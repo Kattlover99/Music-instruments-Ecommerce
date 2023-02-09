@@ -6,7 +6,7 @@
  * This file, project or its parts can not be copied and/or distributed without
  * the express permission of Juan Felipe Rada.
  *
- * @file store.jsx
+ * @file index.jsx
  * @author Juan Felipe Rada <radapls8@gmail.com>
  * @date Wednesday, 8th February 2023
  */
@@ -14,7 +14,6 @@
 import { useLoaderData } from "@remix-run/react"
 import { getInstruments } from "~/api/instruments.server"
 import InstrumentList from "~/components/instrument-list"
-import styles from "~/styles/instruments.css"
 
 export function meta()
 {
@@ -24,18 +23,6 @@ export function meta()
             description: 'Our Miusiq Store',
 
         }
-    )
-}
-
-export function links()
-{
-    return (
-        [
-            {
-                rel: 'stylesheet',
-                href: styles
-            }
-        ]
     )
 }
 
@@ -51,10 +38,8 @@ function Store()
     const instruments = useLoaderData()
 
     return (
-        <main className="container">
-            <InstrumentList
-                instruments={instruments} />
-        </main>
+        <InstrumentList
+            instruments={instruments} />
     )
 }
 

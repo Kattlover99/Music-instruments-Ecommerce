@@ -13,7 +13,6 @@
 
 import { useLoaderData, useLocation } from "@remix-run/react"
 import { getInstrument } from "~/api/instruments.server"
-import styles from '../../styles/instruments.css'
 
 export async function loader({ params })
 {
@@ -30,18 +29,6 @@ export async function loader({ params })
     }
 
     return instrument
-}
-
-export function links()
-{
-    return (
-        [
-            {
-                rel: 'stylesheet',
-                href: styles
-            }
-        ]
-    )
 }
 
 export function meta({ data })
@@ -69,7 +56,7 @@ function Instrument()
     const { name, description, image, price } = instrument.data[ 0 ].attributes
 
     return (
-        <main className="container instrument">
+        <div className="instrument">
             <img
                 src={image.data.attributes.url}
                 alt={`${name} representation`}
@@ -81,7 +68,7 @@ function Instrument()
                 <p className="text">{description}</p>
                 <p className="price">${price}</p>
             </div>
-        </main>
+        </div>
     )
 }
 

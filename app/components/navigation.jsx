@@ -35,8 +35,8 @@ function Navigation()
         Blog
       </Link>
 
-      <Link to='/store'
-        className={location.pathname === '/store' ? 'active' : ''}>
+      <Link to='/instruments'
+        className={location.pathname === '/instruments' ? 'active' : ''}>
         Store
       </Link>
     </nav>
