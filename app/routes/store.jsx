@@ -13,7 +13,7 @@
 
 import { useLoaderData } from "@remix-run/react"
 import { getInstruments } from "~/api/instruments.server"
-import Instrument from "~/components/instrument"
+import InstrumentList from "~/components/instrument-list"
 import styles from "~/styles/instruments.css"
 
 export function meta()
@@ -52,18 +52,8 @@ function Store()
 
     return (
         <main className="container">
-            <h2 className="heading">Our products</h2>
-
-            {instruments?.length && (
-                <div className="instruments-grid">
-                    {instruments.map(instrument => (
-                        <Instrument
-                            key={instrument?.id}
-                            instrument={instrument?.attributes}
-                        />
-                    ))}
-                </div>
-            )}
+            <InstrumentList
+                instruments={instruments} />
         </main>
     )
 }

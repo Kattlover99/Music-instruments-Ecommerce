@@ -13,7 +13,7 @@
 
 import { useLoaderData } from "@remix-run/react"
 import { getBlogs } from "~/api/blog.server"
-import Post from "~/components/post"
+import PostsList from "~/components/posts-list"
 import styles from "../styles/blog.css"
 
 export async function loader()
@@ -50,15 +50,8 @@ function Blog()
 
     return (
         <main className="container">
-            <h2 className="heading">Blog</h2>
-            <div className="blog">
-                {blog.map(post => (
-                    <Post
-                        post={post.attributes}
-                        key={post.id}
-                    />
-                ))}
-            </div>
+            <PostsList
+                blog={blog} />
         </main>
     )
 }
