@@ -11,6 +11,18 @@
  * @date Wednesday, 8th February 2023
  */
 
+import { useLoaderData } from "@remix-run/react"
+import { getBlogs } from "~/api/blog.server"
+import Post from "~/components/post"
+import styles from "../styles/blog.css"
+
+export async function loader()
+{
+    const blog = await getBlogs()
+
+    return blog.data
+}
+
 export function meta()
 {
     return (
@@ -20,10 +32,34 @@ export function meta()
     )
 }
 
-function Blog()
+export function links()
 {
     return (
-        <div>Blog</div>
+        [
+            {
+                rel: 'stylesheet',
+                href: styles
+            }
+        ]
+    )
+}
+
+function Blog()
+{
+    const blog = useLoaderData()
+
+    return (
+        <main className="container">
+            <h2 className="heading">Blog</h2>
+            <div className="blog">
+                {blog.map(post => (
+                    <Post
+                        post={post.attributes}
+                        key={post.id}
+                    />
+                ))}
+            </div>
+        </main>
     )
 }
 

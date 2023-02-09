@@ -144,3 +144,23 @@
   font-size:  2rem;
   font-weight: 700;
 }
+
+.link {
+  margin-top: 2rem;
+  display: block;
+  background-color: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  padding: .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 900;
+  transition: background-color;
+  transition-duration: 300ms;
+  border-radius: .5rem;
+}
+
+.link:hover {
+  background-color: var(--primary);
+}
