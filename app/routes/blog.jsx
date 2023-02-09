@@ -11,7 +11,7 @@
  * @date Wednesday, 8th February 2023
  */
 
-import { Outlet, useLoaderData } from "@remix-run/react"
+import { Outlet } from "@remix-run/react"
 import { getBlogs } from "~/api/blog.server"
 import styles from "../styles/blog.css"
 
@@ -45,7 +45,6 @@ export function links()
 
 function Blog()
 {
-    const blog = useLoaderData()
 
     return (
         <main className="container">
