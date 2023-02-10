@@ -11,7 +11,7 @@
  * @date Wednesday, 8th February 2023
  */
 
-import { useLoaderData, useLocation } from "@remix-run/react"
+import { useLoaderData, useLocation, useOutletContext } from "@remix-run/react"
 import { useState } from "react"
 import { getInstrument } from "~/api/instruments.server"
 
@@ -51,6 +51,7 @@ export function meta({ data })
 
 function Instrument()
 {
+    const { addToCart } = useOutletContext()
     const [ quantity, setQuantity ] = useState(0)
     const location = useLocation()
     const instrument = useLoaderData()
@@ -75,7 +76,7 @@ function Instrument()
             quantity
         }
 
-        console.log(selectedInstrument)
+        addToCart(selectedInstrument)
     }
 
     return (

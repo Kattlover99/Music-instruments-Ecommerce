@@ -11,7 +11,7 @@
  * @date Wednesday, 8th February 2023
  */
 
-import { Outlet } from "@remix-run/react"
+import { Outlet, useOutletContext } from "@remix-run/react"
 import styles from "~/styles/instruments.css"
 
 export function links()
@@ -28,10 +28,10 @@ export function links()
 
 function Store()
 {
-
     return (
         <main className="container">
-            <Outlet />
+            <Outlet
+                context={useOutletContext()} />
         </main>
     )
 }

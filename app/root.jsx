@@ -12,6 +12,7 @@
  */
 
 import { Link, Links, LiveReload, Meta, Outlet, Scripts, useCatch } from '@remix-run/react'
+import { useEffect, useState } from "react"
 import Footer from "~/components/footer"
 import Header from "~/components/header"
 import styles from '~/styles/index.css'
@@ -64,9 +65,63 @@ export function links()
 
 export default function App()
 {
+    const cartLS = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('shopping-cart')) ?? [] : null
+    const [ cart, setCart ] = useState(cartLS)
+
+    useEffect(() =>
+    {
+        localStorage.setItem('shopping-cart', JSON.stringify(cart))
+    }, [ cart ])
+
+
+    const addToCart = instrument =>
+    {
+        if (cart.some(instrumentState => instrumentState.id === instrument.id))
+        {
+            const newCart = cart.map(InstrumentState =>
+            {
+                if (InstrumentState.id === instrument.id)
+                {
+                    InstrumentState.quantity = instrument.quantity
+                }
+                return InstrumentState
+            })
+
+            setCart(newCart)
+        } else
+        {
+            setCart([ ...cart, instrument ])
+        }
+    }
+
+    const newQuantity = instrument =>
+    {
+        const newCart = cart.map(instrumentState =>
+        {
+            if (instrumentState.id === instrument.id)
+            {
+                instrumentState.quantity = instrument.quantity
+            }
+            return instrumentState
+        })
+        setCart(newCart)
+    }
+
+    const deleteInstrument = id =>
+    {
+        const newCart = cart.filter(instrumentState => instrumentState.id !== id)
+        setCart(newCart)
+    }
+
     return (
         <Document>
-            <Outlet />
+            <Outlet
+                context={{
+                    addToCart,
+                    cart,
+                    newQuantity,
+                    deleteInstrument
+                }} />
         </Document>
     )
 }
