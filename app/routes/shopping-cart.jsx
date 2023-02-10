@@ -13,6 +13,7 @@
 
 import { useOutletContext } from "@remix-run/react"
 import { useEffect, useState } from "react"
+import { ClientOnly } from "remix-utils"
 import styles from "~/styles/shopping-cart.css"
 
 export function links()
@@ -50,16 +51,15 @@ function ShoppingCart()
 
 
     return (
-        <main className="container">
-            <h1 className="heading">Shopping Cart</h1>
+        <ClientOnly fallback={'Loading...'}>
+            {() => (
+                <main className="container">
+                    <h1 className="heading">Shopping Cart</h1>
 
-            <div className="content">
-                <div className="shopping-cart">
-                    <h2>Articles</h2>
-                    {cart?.length === 0
-                        ? 'Shopping Cart is empty'
-                        : (
-                            cart?.map(product => (
+                    <div className="content">
+                        <div className="shopping-cart">
+                            <h2>Articles</h2>
+                            {cart?.length === 0 ? 'Shopping Cart is empty' : (cart?.map(product => (
                                 <div key={product.id} className='product'>
                                     <div>
                                         <img src={product.image} alt={`${product.name} product`} draggable='false' />
@@ -90,15 +90,17 @@ function ShoppingCart()
                                     <button type="button" className="button" onClick={() => deleteInstrument(product.id)}>X</button>
                                 </div>
                             ))
-                        )}
-                </div>
+                            )}
+                        </div>
 
-                <aside className="resume">
-                    <h3>Order resume</h3>
-                    <p>Total value ${total}</p>
-                </aside>
-            </div>
-        </main>
+                        <aside className="resume">
+                            <h3>Order resume</h3>
+                            <p>Total value ${total}</p>
+                        </aside>
+                    </div>
+                </main>
+            )}
+        </ClientOnly>
     )
 }
 
