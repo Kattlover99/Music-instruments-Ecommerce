@@ -24,7 +24,7 @@ export default function Post({ post })
                 <h3 >{title}</h3>
                 <p className="date">{formatDate(publishedAt)}</p>
                 <p className="resume">{content}</p>
-                <Link className="link" to={`/blog/${url}`} >Read post</Link>
+                <Link className="link" prefetch="render" to={`/blog/${url}`} >Read post</Link>
             </div>
         </article>
     )

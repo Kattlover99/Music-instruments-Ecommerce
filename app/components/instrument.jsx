@@ -24,7 +24,7 @@ function Instrument({ instrument })
                 <h3>{name}</h3>
                 <p className="description">{description}</p>
                 <p className="price">${price}</p>
-                <Link className="link" to={`/instruments/${url}`}>See product</Link>
+                <Link className="link" prefetch="render" to={`/instruments/${url}`}>See product</Link>
             </div>
         </div>
     )

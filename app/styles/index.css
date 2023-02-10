@@ -64,6 +64,7 @@
   display: flex;
   gap: 2rem;
   margin-top: 3rem;
+  align-items: center;
  }
 
  @media (min-width: 768px) {
@@ -82,6 +83,10 @@
   transition-property: background-color;
   transition-duration: 300ms;
   border-radius: .5rem;
+ }
+
+ .header .navigation img {
+  width: 3rem;
  }
 
  .header .navigation a:hover, .header .active{
@@ -126,6 +131,10 @@
 
  .footer .copyright {
   text-align: center;
+ }
+
+ .footer .navigation a:last-of-type {
+  display: none;
  }
 
  /* Error */

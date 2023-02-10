@@ -52,8 +52,8 @@ export function links()
         },
         {
             rel: 'icon',
-            type: 'icon',
             href: Favicon,
+            type: 'icon'
         },
         {
             rel: 'stylesheet',

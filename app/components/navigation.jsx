@@ -12,6 +12,7 @@
  */
 
 import { Link, useLocation } from "@remix-run/react"
+import image from '../../public/img/carrito.png'
 
 function Navigation()
 {
@@ -19,25 +20,30 @@ function Navigation()
   return (
     <nav className="navigation">
       <Link
+        prefetch="render"
         to='/'
         className={location.pathname === '/' ? 'active' : ''}>
         Home
       </Link>
 
       <Link
+        prefetch="render"
         to='/us'
         className={location.pathname === '/us' ? 'active' : ''}>
         Us
       </Link>
 
-      <Link to='/blog'
+      <Link prefetch="render" to='/blog'
         className={location.pathname === '/blog' ? 'active' : ''}>
         Blog
       </Link>
 
-      <Link to='/instruments'
+      <Link prefetch="render" to='/instruments'
         className={location.pathname === '/instruments' ? 'active' : ''}>
         Store
+      </Link>
+      <Link prefetch="render" to='/shopping-cart'>
+        <img src={image} alt="Shopping cart" />
       </Link>
     </nav>
   )

@@ -29,13 +29,13 @@ export function links()
     return (
         [
             {
-                rel: 'stylesheet',
-                href: styles
+                as: 'image',
+                rel: 'preload',
+                href: image
             },
             {
-                rel: 'preload',
-                href: image,
-                as: 'image'
+                rel: 'stylesheet',
+                href: styles
             }
         ]
     )

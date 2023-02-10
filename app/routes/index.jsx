@@ -33,12 +33,6 @@ export async function loader()
     return { instruments: instruments.data, blog: blog.data, course: course.data }
 }
 
-export function meta()
-{
-    return {}
-
-}
-
 export function links()
 {
     return (
