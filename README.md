@@ -1,6 +1,45 @@
-# Miusiq Remix
+<div align="center">
+<img  alt="Miusiq Remix" src="public/img/logo-color-no-bg.png" height="80px">
+</div>
 
-- [Remix Docs](https://remix.run/docs)
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/radapls/miusiq-remix">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/radapls/miusiq-remix">
+
+  <a>
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/radapls/miusiq-remix">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
+
+<p align="center"> The best way to find the music in you
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="Frontend" src="public/img/mock.jpg" width="100%">
+</p>
+
+## :rocket: Technologies
+
+This project was developed with:
+
+- [React](https://reactjs.org)
+- [Remix](https://remix.run/)
+- [CSS3](https://developer.mozilla.org/es/docs/Web/CSS)
+- [Strapi](https://strapi.io/)
+- [Cloudinary](https://cloudinary.com/)
+
+## :memo: License
+
+This project is under the MIT license. See the file [LICENSE](LICENSE.md) for more details.
+
+## ☝️Reproduce the project
+
+- Visit [Remix Docs](https://remix.run/docs)
 
 ## Development
 
